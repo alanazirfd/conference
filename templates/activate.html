@@ -1,0 +1,19 @@
+<html>
+    <style>
+
+
+    </style>
+    <body>
+
+        {% autoescape off %}
+
+        <h1>Hi {{ attendee.name }},</h1>
+        
+        <div>
+        <h2>Please click on the link below to confirm your registeration</h2>
+        </div>
+        http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+        {% endautoescape %}
+
+    </body>
+</html>

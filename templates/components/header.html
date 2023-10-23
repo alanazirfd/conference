@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Tajawal' rel='stylesheet'>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css\components\header.css' %}">
+        <link rel="stylesheet" href="{% static 'css\global.css' %}">
+        <link rel="" href="">
+
+    </head>
+<body>
+    <header>
+      <div class="image-container ">
+      <img src="/static/images/header/wave-1.svg">
+      <img src="/static/images/header/wave-2.svg">
+      <img src="/static/images/header/wave-3.svg">
+      <img src="/static/images/header/wave-4.svg">
+      <img src="/static/images/header/wave-5.svg" id="shape" >
+       <a href="/"><h1>Arabspine 2023</h1></a>
+            </div>
+    </header>
+    <section>
+<body>
+    <nav class="header">
+        <a href="/"><img id="logo" src=""></a>
+        <!--<a href="/register"><div class="header button" id="register-button">Register</div></a> -->
+        <div class="">
+            <a href="/registerls"><div class="header button" id="Register">Register</div></a>
+            <a href="/faculty"><div class="header button" id="faculty">Faculty</div></a>
+            <a href="/team"><div class="header button" id="team">Committee Members</div></a>
+            <a href="/scientific_programme"><div class="header button" id="scientific_programme">Scientific Programme</div></a>
+            <a href=""><div class="header button" id="Call for Abstract">Call for Abstract</div></a>
+        </div>
+
+        <div class="medium-screen">
+            <div class="dropdown">
+                <input type="image" onclick="showDropdown()" class="dropbtn" id="dropdown-image" src="/static/images/common/dropdown.png"></button>
+                <div id="myDropdown" class="dropdown-content">
+                <a href="/register">Register</a>
+                <a href="">Faculty</a>
+                <a href="/team">Committee Members</a>
+                <a href="">Scientific Programme</a>
+               <a href="">Sponsership Categories</a>
+               <a href="">Call for Abstract</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+
+        // Add register button when screen is small
+        function addRegister(screen_size) {
+            console.log(screen_size);
+            if (screen_size.matches) {
+                var dropdowns = document.getElementsByClassName("dropdown-content")[0];
+
+                var node = document.createElement("a");
+                node.style.color = "#eb0028";
+                node.href = "/register";
+
+                var text = document.createTextNode("الحجز");
+                node.appendChild(text);
+
+                dropdowns.insertBefore(node, dropdowns.firstChild);
+            }
+        }
+        var screen_size = window.matchMedia("(max-width: 465px)");
+
+        addRegister(screen_size);
+        screen_size.addListener(addRegister);
+
+
+        function showDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        function highlightPath() {
+            var path_name = window.location.pathname;
+            var current_page = document.getElementById(window.location.pathname.substring(1,))
+            current_page.style.color = '#eb0028';
+        }
+        highlightPath();
+
+    </script>
+    </section>
+  </body>
